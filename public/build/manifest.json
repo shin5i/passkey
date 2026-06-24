@@ -1,0 +1,39 @@
+{
+  "_dist-DrfhV2a5.js": {
+    "file": "assets/dist-DrfhV2a5.js",
+    "name": "dist"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-C8jhUUyy.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DO2nEFzp.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/passkey-login.js": {
+    "file": "assets/passkey-login-j1pPLXCg.js",
+    "name": "passkey-login",
+    "src": "resources/js/passkey-login.js",
+    "isEntry": true,
+    "imports": [
+      "_dist-DrfhV2a5.js"
+    ]
+  },
+  "resources/js/passkey-register.js": {
+    "file": "assets/passkey-register-DHQSKKOI.js",
+    "name": "passkey-register",
+    "src": "resources/js/passkey-register.js",
+    "isEntry": true,
+    "imports": [
+      "_dist-DrfhV2a5.js"
+    ]
+  }
+}
