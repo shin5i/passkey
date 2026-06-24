@@ -6,3 +6,5 @@
 .php-cs-fixer.cache
 Homestead.yaml
 Homestead.json
+gcm.deb
+gcm.tar.gz
