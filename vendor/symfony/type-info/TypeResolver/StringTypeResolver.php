@@ -128,15 +128,7 @@ final class StringTypeResolver implements TypeResolverInterface
         }
 
         if ($node instanceof ObjectShapeNode) {
-            $shape = [];
-            foreach ($node->items as $item) {
-                $shape[(string) $item->keyName] = [
-                    'type' => $this->getTypeFromNode($item->valueType, $typeContext),
-                    'optional' => $item->optional,
-                ];
-            }
-
-            return $shape ? Type::objectShape($shape) : Type::object();
+            return Type::object();
         }
 
         if ($node instanceof ThisTypeNode) {
