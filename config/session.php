@@ -156,8 +156,7 @@ return [
     |
     */
 
-    // 'domain' => env('SESSION_DOMAIN'),
-    'domain' => '.sh5web.com', // 先頭にドットをつけることで、tokyo6やnaviなどのサブドメイン間でクッキーが共有されます
+    'domain' => env('SESSION_DOMAIN'),
     /*
     |--------------------------------------------------------------------------
     | HTTPS Only Cookies
