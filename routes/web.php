@@ -17,4 +17,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+#サーバーのWordpressの以下のファイルがLaravelの認証状態を取得するためのResponseを返す
+#/home/sh5web/www/tokyo6/wp-content/mu-plugins/mu-plugins/laravel-auth-check.php
+Route::get('/api/internal-auth-check', function () {
+    if (Auth::check()) {
+        return response()->json([
+            'authenticated' => true,
+            'user_id' => Auth::id()
+        ]);
+    }
+
+    return response()->json([
+        'authenticated' => false
+    ], 401); // 未ログイン時は 401 Unauthorized を返す
+});
+
+
 require __DIR__.'/auth.php';
