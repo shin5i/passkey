@@ -25,7 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // パスキーの名前（デバイス名など）を任意で指定。空欄でもデバイス名が自動採用されます
-            const passkeyName = prompt("このパスキーの名前（例: 私のiPhone、会社のPC）を入力してください:", "") || "マイデバイス";
+            // const passkeyName = prompt("このパスキーの名前（例: 私のiPhone、会社のPC）を入力してください:", "") || "マイデバイス";
+            
+            // UserAgent を passkeyName に自動設定
+            const ua = navigator.userAgent;
+
+            // 例: "Chrome / Windows" のように整形
+            const passkeyName = detectDeviceName(ua);
 
             // 🚀 公式ライブラリを呼び出してブラウザのパスキー（生体認証）ポップアップを起動
             // 内部で自動的に /user/passkeys へPOST送信まで完了します
@@ -70,3 +76,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/**
+ * UserAgent からブラウザ名 + OS名 を抽出する関数
+ */
+function detectDeviceName(ua) {
+    let browser = "Unknown Browser";
+    let os = "Unknown OS";
+
+    // ブラウザ判定
+    if (ua.includes("Chrome")) browser = "Chrome";
+    else if (ua.includes("Safari")) browser = "Safari";
+    else if (ua.includes("Firefox")) browser = "Firefox";
+    else if (ua.includes("Edg")) browser = "Edge";
+
+    // OS 判定
+    if (ua.includes("Windows")) os = "Windows";
+    else if (ua.includes("Mac OS")) os = "macOS";
+    else if (ua.includes("iPhone")) os = "iPhone";
+    else if (ua.includes("iPad")) os = "iPad";
+    else if (ua.includes("Android")) os = "Android";
+    else if (ua.includes("Linux")) os = "Linux";
+
+    return `${browser} / ${os}`;
+}
